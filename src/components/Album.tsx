@@ -167,7 +167,7 @@ export const Album = () => {
     <div className="album-container">
       <div className="controls">
         <div className="pack-info">
-          <button onClick={generateNewPack} disabled={isOpening}>
+          <button className='apriPacchetto' onClick={generateNewPack} disabled={isOpening}>
             {isOpening ? 'Apertura in corso...' : 'Apri Pacchetto'}
           </button>
           <span className="pack-counter">Pacchetti aperti: {packsOpened}</span>

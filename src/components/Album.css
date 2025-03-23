@@ -2,21 +2,69 @@
   max-width: 1200px;
   margin: 0 auto;
   padding: 20px;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .controls {
   display: flex;
-  justify-content: space-between;
+  justify-content:center;
   align-items: center;
   margin-bottom: 20px;
   gap: 20px;
+  flex-wrap: wrap;
 }
+
+.controls .apriPacchetto {
+ width: 100%;
+ background-color: #ffe000;
+ color: black;
+}
+
+.controls .apriPacchetto:hover {
+  width: 100%;
+  background-color: #3300ff;
+  color: white;
+  border: solid;
+ }
+
+ .controls .apriPacchetto:hover::before {
+  content: "";
+  width: 100%;
+  background-color: #ffe000;
+  color: black;
+ }
+
+ .controls .apriPacchetto:hover::after {
+  content: "";
+  width: 100%;
+  background-color: #ffe000;
+  color: black;
+
+ }
+
+
+ .controls .apriPacchetto::before {
+  content: "🔥 ";
+  width: 100%;
+  background-color: #ffe000;
+  color: black;
+ }
+
+ .controls .apriPacchetto::after {
+  content: " 🔥";
+  width: 100%;
+  background-color: #ffe000;
+  color: black;
+ }
 
 .pack-info {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 10px;
+  width: 100%;
+  max-width: 300px;
 }
 
 .pack-counter {
@@ -29,12 +77,15 @@
   display: flex;
   gap: 10px;
   align-items: center;
-  font-size: 10px;
+  font-size: 14px;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 .page-controls span {
   color: black;
-  font-size: 10px;
+  font-size: 14px;
+  white-space: nowrap;
 }
 
 .album {
@@ -42,6 +93,8 @@
   border-radius: 10px;
   padding: 20px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .album-page {
@@ -68,6 +121,7 @@
   width: 100%;
   height: 100%;
   padding: 10px;
+  box-sizing: border-box;
 }
 
 .card-image {
@@ -121,6 +175,8 @@
   align-items: center;
   justify-content: center;
   animation: fadeIn 0.3s ease-in-out;
+  padding: 20px;
+  box-sizing: border-box;
 }
 
 .pack-content {
@@ -128,14 +184,16 @@
   padding: 20px;
   border-radius: 10px;
   max-width: 400px;
-  width: 90%;
+  width: 100%;
   text-align: center;
   animation: slideIn 0.5s ease-in-out;
+  box-sizing: border-box;
 }
 
 .pack-content h2 {
   margin-bottom: 20px;
   color: #333;
+  font-size: 1.5rem;
 }
 
 .pack-card {
@@ -152,6 +210,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  max-width: 100%;
 }
 
 .pack-card img {
@@ -160,12 +219,14 @@
   object-fit: contain;
   border-radius: 8px;
   animation: cardReveal 0.5s ease-in-out;
+  max-width: 200%;
+  margin-bottom: -40px;
 }
 
 .duplicate-banner {
   position: absolute;
-  top: 10px;
-  right: 10px;
+  top: -5%;
+  right: 17%;
   background-color: #ffd700;
   color: #000;
   padding: 5px 10px;
@@ -178,8 +239,8 @@
 
 .rare-banner {
   position: absolute;
-  top: 10px;
-  left: 10px;
+  top: -10px;
+  left: 15px;
   background-color: #ff6b6b;
   color: white;
   padding: 5px 10px;
@@ -199,9 +260,10 @@
 
 .choice-buttons {
   display: flex;
-  gap: 20px;
+  gap: 10px;
   justify-content: center;
   width: 100%;
+  flex-wrap: wrap;
 }
 
 button {
@@ -212,6 +274,7 @@ button {
   font-size: 16px;
   transition: background-color 0.3s;
   min-width: 120px;
+  touch-action: manipulation;
 }
 
 button:disabled {
@@ -222,6 +285,7 @@ button:disabled {
 .accept-button {
   background-color: #4CAF50;
   color: white;
+  font-size: 20px;
 }
 
 .accept-button:hover {
@@ -231,12 +295,102 @@ button:disabled {
 .reject-button {
   background-color: #f44336;
   color: white;
+  font-size: 20px;
 }
 
 .reject-button:hover {
   background-color: #da190b;
 }
 
+/* Media Queries per dispositivi mobili */
+@media (max-width: 1024px) {
+  .album-page {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .album-page {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .controls {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  .pack-info {
+    max-width: 100%;
+  }
+
+  .page-controls {
+    width: 100%;
+  }
+
+  button {
+    width: 100%;
+    min-width: auto;
+  }
+
+  .pack-content {
+    padding: 15px;
+  }
+
+  .pokemon-name {
+    font-size: 20px;
+  }
+
+  .card-wrapper {
+    width: 150px;
+    height: 150px;
+  }
+
+  .pack-card img {
+    width: 150px;
+    height: 150px;
+  }
+}
+
+@media (max-width: 480px) {
+  .album-page {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+
+  .album {
+    padding: 10px;
+  }
+
+  .card-name {
+    font-size: 12px;
+  }
+
+  .card-count {
+    font-size: 10px;
+  }
+
+  .rare-badge {
+    font-size: 20px;
+  }
+
+  .duplicate-banner,
+  .rare-banner {
+    font-size: 12px;
+    padding: 3px 8px;
+  }
+
+  .choice-buttons {
+    gap: 10px;
+  }
+
+  button {
+    font-size: 24px;
+    padding: 8px 16px;
+  }
+}
+
+/* Animazioni */
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -276,5 +430,20 @@ button:disabled {
   to {
     transform: translateX(0);
     opacity: 1;
+  }
+}
+
+/* Ottimizzazioni per il touch */
+@media (hover: none) {
+  button:hover {
+    background-color: initial;
+  }
+
+  .accept-button:active {
+    background-color: #45a049;
+  }
+
+  .reject-button:active {
+    background-color: #da190b;
   }
 } 
